@@ -1,0 +1,12 @@
+.container{
+    display:flex;
+}
+
+.card1,.card2,.card3,.card4,.card5{
+    width:300px;
+    height:300px;
+    border:1px solid black;
+    text-align:center;
+   
+}
+
