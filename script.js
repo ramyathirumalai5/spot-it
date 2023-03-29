@@ -1,3 +1,32 @@
+const arrayOfObjects = [
+  {id:0,src:'./pictures/0.jpg'},
+  {id:1,src:'./pictures/1.jpg'},
+  {id:2,src:'./pictures/2.jpg'},
+  {id:3,src:'./pictures/3.jpg'},
+  {id:4,src:'./pictures/4.jpg'},
+  {id:5,src:'./pictures/5.jpg'},
+  {id:6,src:'./pictures/6.jpg'},
+  {id:7,src:'./pictures/7.jpg'},
+  {id:8,src:'./pictures/8.jpg'},
+  {id:9,src:'./pictures/9.jpg'},
+  {id:10,src:'./pictures/10.jpg'},
+  {id:11,src:'./pictures/11.jpg'},
+  {id:12,src:'./pictures/12.jpg'},
+  {id:13,src:'./pictures/13.jpg'},
+  {id:14,src:'./pictures/14.jpg'},
+  {id:15,src:'./pictures/15.jpg'},
+  {id:16,src:'./pictures/16.jpg'},
+  {id:17,src:'./pictures/17.jpg'},
+  {id:18,src:'./pictures/18.jpg'},
+  {id:19,src:'./pictures/19.jpg'},
+  {id:20,src:'./pictures/20.jpg'},
+  {id:21,src:'./pictures/21.jpg'},
+  {id:22,src:'./pictures/22.jpg'},
+  {id:23,src:'./pictures/23.jpg'},
+  {id:24,src:'./pictures/24.jpg'},
+  {id:25,src:'./pictures/25.jpg'},
+];
+
 const counterSpan = document.querySelectorAll('.counterSpan');
 const globalArr =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 const random10 =[];
@@ -36,7 +65,7 @@ divideArrayFunction(cardsArray,resultArray.random10,0);
 
 //adding the remaining 15 items to the five arrays
 const addRemainingArrayFunction = (copyArray,cardsArray) => {
- for(let i = 0; i< 3; i++){
+ for(let i = 0; i< 2  ; i++){
   for(let j=0 ; j< 5;j++){
     cardsArray[j].push(copyArray[i*5+j]);
   }
@@ -59,86 +88,82 @@ const shuffleArrayFunction = (array) =>{
 const shuffledFinalArray = shuffleArrayFunction(finalArray);
 
 //card1 fuction
-const createCard1Function = (array1)=>{
+const createCard1Function = (array,arrayOfObjects)=>{
 const card1Div = document.querySelector('.card1');
-
-if(array1.length == 0)
-return card1Div;
-
-const pTag = document.createElement("p");
-pTag.textContent= array1[0];
-pTag.className = 'card-item';
-card1Div.appendChild(pTag);
-
-const remainingArray = array1.slice(1);
-createCard1Function(remainingArray);
-
+for (let i = 0; i < array.length; i++) {
+    const object = arrayOfObjects.find(obj => obj.id === array[i]);
+    if (object) {
+      const img = document.createElement('img');
+      img.src = object.src;
+      img.classList.add('card-item');
+      img.setAttribute('id',object.id);
+      card1Div.appendChild(img);
+    }
+  }
 }
 //card2 function
-const createCard2Function = (array)=>{
+const createCard2Function = (array,arrayOfObjects)=>{
   const card2Div = document.querySelector('.card2');
-  if(array.length == 0)
-  return card2Div;
-  
-  const pTag = document.createElement("p");
-  pTag.textContent= array[0];
-  pTag.className='card-item';
-  card2Div.appendChild(pTag);
-  
-  const remainingArray = array.slice(1);
-  createCard2Function(remainingArray);
- 
+  for (let i = 0; i < array.length; i++) {
+    const object = arrayOfObjects.find(obj => obj.id === array[i]);
+    if (object) {
+      const img = document.createElement('img');
+      img.src = object.src;
+      img.classList.add('card-item');
+      img.setAttribute('id',object.id);
+      card2Div.appendChild(img);
+    }
+  }
   }
 
-const createCard3Function = (array)=>{
+const createCard3Function = (array,arrayOfObjects)=>{
     const card3Div = document.querySelector('.card3');
-    if(array.length == 0)
-    return card3Div;  
-    
-    const pTag = document.createElement("p");
-    pTag.textContent= array[0];
-    pTag.className='card-item';
-    card3Div.appendChild(pTag);
-    
-    const remainingArray = array.slice(1);
-    createCard3Function(remainingArray);
-    
-    
+    for (let i = 0; i < array.length; i++) {
+      const object = arrayOfObjects.find(obj => obj.id === array[i]);
+      if (object) {
+        const img = document.createElement('img');
+        img.src = object.src;
+        img.classList.add('card-item');
+      img.setAttribute('id',object.id);
+        card3Div.appendChild(img);
+      }
+    }
     }
 
-const createCard4Function = (array)=>{
+const createCard4Function = (array,arrayOfObjects)=>{
       const card4Div = document.querySelector('.card4');
-      if(array.length == 0)
-      return card4Div;  
-      
-      const pTag = document.createElement("p");
-      pTag.textContent= array[0];
-      pTag.className='card-item';
-      card4Div.appendChild(pTag);
-      
-      const remainingArray = array.slice(1);
-      createCard4Function(remainingArray);
+      for (let i = 0; i < array.length; i++) {
+        const object = arrayOfObjects.find(obj => obj.id === array[i]);
+        if (object) {
+          const img = document.createElement('img');
+          img.src = object.src;
+          img.classList.add('card-item');
+      img.setAttribute('id',object.id);
+          card4Div.appendChild(img);
+        }
+      }
       }
 
-const createCard5Function = (array)=>{
+const createCard5Function = (array,arrayOfObjects)=>{
         const card5Div = document.querySelector('.card5');
-        if(array.length == 0)
-        return card5Div;  
-        
-        const pTag = document.createElement("p");
-        pTag.textContent= array[0];
-        pTag.className='card-item';
-        card5Div.appendChild(pTag);
-        
-        const remainingArray = array.slice(1);
-        createCard5Function(remainingArray);
+        for (let i = 0; i < array.length; i++) {
+          const object = arrayOfObjects.find(obj => obj.id === array[i]);
+          if (object) {
+            const img = document.createElement('img');
+            img.src = object.src;
+            img.classList.add('card-item');
+            img.setAttribute('id',object.id);
+            img.classList.add('card-item');
+            card5Div.appendChild(img);
+          }
+        }
         }
 
-        createCard1Function(shuffledFinalArray[0]);
-        createCard2Function(shuffledFinalArray[1]);
-        createCard3Function(shuffledFinalArray[2]);
-        createCard4Function(shuffledFinalArray[3]);
-        createCard5Function(shuffledFinalArray[4]);
+        createCard1Function(shuffledFinalArray[0],arrayOfObjects);
+        createCard2Function(shuffledFinalArray[1],arrayOfObjects);
+        createCard3Function(shuffledFinalArray[2],arrayOfObjects);
+        createCard4Function(shuffledFinalArray[3],arrayOfObjects);
+        createCard5Function(shuffledFinalArray[4],arrayOfObjects);
         
 //Where we test for the match
 let cardItem = document.querySelectorAll('.card-item');
@@ -147,16 +172,17 @@ let picture2=false;
 let picture1Value=0;
 cardItem.forEach((card)=>{
 card.addEventListener('click',(event)=>{
-  console.log(event);
+  console.log(event.target.attributes[2].value);
   if(!card.classList.contains('clicked')){
     card.classList.add('clicked');
     if(!picture1){
       picture1 = card;
-      picture1Value = event.target.innerText;
+      console.log(picture1);
+      picture1Value = parseInt(event.target.attributes[2].value);
       console.log(picture1Value);
     } else{
       picture2=card;
-      let picture2Value = event.target.innerText;
+      let picture2Value = parseInt(event.target.attributes[2].value);
       console.log('second click',picture2Value);
       if(picture1Value == picture2Value){
           picture1.classList.add('done');

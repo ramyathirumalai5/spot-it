@@ -1,12 +1,19 @@
 .container{
     display:flex;
+    gap:30px;
+    jusify-content:space-around;
 }
 
 .card1,.card2,.card3,.card4,.card5{
     width:200px;
     height:300px;
     border:1px solid black;
-    text-align:center;
+    display:grid;
+    grid-template-rows: repeat(3,100px);
+    grid-template-columns:repeat(2,100px);
+    background-color:black;
+    gap:3px;
+    
    
 }
 
@@ -16,8 +23,13 @@
 .done{
     color:gray;
     pointer-events:none;
+    opacity:0.4;
 }
 
 .card-item{
     cursor:pointer;
+}
+img{
+    width:93px;
+    height:93px;
 }
