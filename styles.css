@@ -3,10 +3,21 @@
 }
 
 .card1,.card2,.card3,.card4,.card5{
-    width:300px;
+    width:200px;
     height:300px;
     border:1px solid black;
     text-align:center;
    
 }
 
+.clicked{
+    color:red;
+}
+.done{
+    color:gray;
+    pointer-events:none;
+}
+
+.card-item{
+    cursor:pointer;
+}
