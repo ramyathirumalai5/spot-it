@@ -1,18 +1,25 @@
+body{
+    background-color:black;
+    color:white;
+}
+
 .container{
     display:flex;
     gap:30px;
-    jusify-content:space-around;
+    jusify-content:space-evenly;
+    padding-left:60px;
 }
 
 .card1,.card2,.card3,.card4,.card5{
     width:200px;
     height:300px;
-    border:1px solid black;
+    border:3px solid white;
+    
     display:grid;
     grid-template-rows: repeat(3,100px);
     grid-template-columns:repeat(2,100px);
-    background-color:black;
-    gap:3px;
+    background-color:white;
+    gap:1px;
     
    
 }
@@ -30,6 +37,15 @@
     cursor:pointer;
 }
 img{
-    width:93px;
-    height:93px;
+    width:97px;
+    height:95px;
+}
+
+h1{
+    color:white;
+    text-align:center;
+}
+.sub-text{
+    color:white;
+    text-align:center;
 }
