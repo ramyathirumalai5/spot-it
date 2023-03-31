@@ -9,11 +9,29 @@
 </head>
 <body>
   <header>
-    <h1>SPOT IT!!!!</h1>
-    <p class="sub-text">There is always one and only animal between any two cards</p>
-
+    <div class="modal">
+      <h4 style="color:black">GAME OVER</h4>
+      <h2 class="modal-h2"></h2>
+      <p class="modal-paragraph"style="color:black"></p>
+      <button type="button" class="closeBtn">Close</button>
+    </div>
+   <div class="heading">
+    <div>
+       <p> LEGEND  &lt;00:45 seconds</p>
+       <p> MASTER 00:46 to 00:55 seconds </p>
+       <p> TODDLER  >00:55 seconds</p>
+     </div>
+    <div>
+      <h1>SPOT IT!!!!</h1>
+      <p class="sub-text">There is always one and only animal between any two cards</p>
+      <p class="errorDisplay-div">WRONG MATCH</p>
+    </div>
+   <div class="timer-flex">
+     <button class="startBtn">START</button>
+     <p class="timer"></p>
+    </div>
   </header>
-    <div class="container">
+    <div class="container disable-initially">
       <div class="cardOne">
         <p class="counter">Match Left: <span class="counterSpan"> </span> </p>
         <div class="card1"></div>

@@ -8,6 +8,12 @@ body{
     gap:30px;
     jusify-content:space-evenly;
     padding-left:60px;
+    flex-wrap:wrap;
+}
+
+.disable-initially{
+    pointer-events:none;
+    opacity:0.4;
 }
 
 .card1,.card2,.card3,.card4,.card5{
@@ -25,7 +31,7 @@ body{
 }
 
 .clicked{
-    color:red;
+    border:2px solid black;
 }
 .done{
     color:gray;
@@ -43,9 +49,86 @@ img{
 
 h1{
     color:white;
-    text-align:center;
+   text-align:center;
+   
 }
 .sub-text{
     color:white;
     text-align:center;
+}
+
+.timer{
+    font-size:40px;
+    padding-right:1rem;
+    
+}
+
+.heading{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+ 
+}
+.timer-flex{
+    display:inline-flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:flex-end;
+    flex-wrap:wrap;
+}
+
+.startBtn{
+    margin-top:5px;
+    padding:15px 32px;
+    font-size:16px;
+}
+.errorDisplay-div{
+    background-color: orange;
+    color:black;
+    width:50%;
+    padding:8px;
+    margin:auto;
+    text-align:center;
+    display:none;
+    
+}
+
+.modal{
+    width:400px;
+    background-color:white;
+    border-radius:5px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    padding:20px;
+    z-index:5;
+    display:none;
+}
+
+.modal h2{
+    font-size:30px;
+    color:black;
+}
+
+.modal button{
+    width:40%;
+    padding:10px 0;
+}
+
+.open-modal{
+    display:block
+}
+
+@media screen and (max-width:992px){
+ .heading{
+    padding-left:0px;
+ }
+
+ .container{
+    
+    padding-left:90px;
+    flex-wrap:wrap;
+}
 }

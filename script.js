@@ -27,14 +27,52 @@ const arrayOfObjects = [
   {id:25,src:'./pictures/25.jpg'},
 ];
 
+const container = document.querySelector('.container');
+const errorDisplay = document.querySelector('.errorDisplay-div');
+const modal = document.querySelector('.modal');
+const closeBtn = document.querySelector('.closeBtn');
+const modalParagraph = document.querySelector('.modal-paragraph');
+const modalh2 = document.querySelector('.modal-h2');
+
 const counterSpan = document.querySelectorAll('.counterSpan');
+const timer = document.querySelector('.timer');
+const timerBtn = document.querySelector('.startBtn');
 const globalArr =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 const random10 =[];
 const cardsArray = [[],[],[],[],[]];
 let count =4;
 counterSpan.forEach((arr)=>{
   arr.textContent = 4;
-})
+}) 
+let seconds = 0;
+let minutes = 0;
+let interval;
+const timerFunction = () =>{
+ seconds = seconds + 1;
+ if(seconds >= 60){
+  minutes = minutes+1;
+  seconds=0;
+ }
+ let secondsValue = seconds < 10 ? `0${seconds}`:seconds;
+ let minutesValue = minutes < 10 ? `0${minutes}`:minutes;
+ timer.innerText = `${minutesValue}:${secondsValue}`;
+}
+
+
+timerBtn.addEventListener("click", ()=>{
+  if(timerBtn.textContent == 'START')
+  {
+  container.classList.remove('disable-initially');
+
+  interval= setInterval(timerFunction,1000);
+  } else
+  {
+    timerBtn.textContent='START';
+  window.location.reload();
+  
+  }
+
+}); 
 
 //To pick the random 10 numbers from the array
 const random10PickerFunction = (array) =>{
@@ -164,7 +202,8 @@ const createCard5Function = (array,arrayOfObjects)=>{
         createCard3Function(shuffledFinalArray[2],arrayOfObjects);
         createCard4Function(shuffledFinalArray[3],arrayOfObjects);
         createCard5Function(shuffledFinalArray[4],arrayOfObjects);
-        
+   
+
 //Where we test for the match
 let cardItem = document.querySelectorAll('.card-item');
 let picture1=false;
@@ -190,13 +229,14 @@ card.addEventListener('click',(event)=>{
           let parentPicture1 = picture1.parentElement.parentElement;
           let parentPicture2 = picture2.parentElement.parentElement;
           updateCounter(parentPicture1,parentPicture2);
+          
           picture1=false;
           picture2=false;
-          
+          checkIfGameOver();
       }
      //if both the pictures dont match
       else{
-        alert('They dont match');
+        displayErrors();
         picture1.classList.remove('clicked');
         picture2.classList.remove('clicked');
         picture1=false;
@@ -230,5 +270,47 @@ const updateCounter = (parent1,parent2) =>{
  
 }
 
+
+let counter = 0;
+const checkIfGameOver = () =>{
+  
+  counter = counter + 1;
+  if(counter == 10)
+  {
+  container.classList.add('disable-initially');
+  const currentTime = timer.innerText;
+  clearInterval(interval);
+  timerBtn.textContent='PLAY AGAIN';
+  openModal(currentTime);
+  //alert('Game Over');
+  }
+}
+
+const displayErrors = () =>{
+  errorDisplay.style.display='block';
+setTimeout(()=>{
+  errorDisplay.style.display='none';
+},3000)
+}
+
+
+
+
+const openModal = (currentTime) =>{
+  let grade;
+  if(currentTime <= '00:45')
+  grade='LEGEND';
+  else if (currentTime <='00:55')
+  grade='MASTER';
+  else grade = 'TODDLER';
+
+  modalh2.innerHTML=`YOU ARE A ${grade}`;
+  modalParagraph.innerHTML = `You finished in ${currentTime}`;
+    modal.classList.add('open-modal');
+    console.log(grade);
+}
+closeBtn.addEventListener('click',()=>{
+    modal.classList.remove('open-modal');
+})
 
 
