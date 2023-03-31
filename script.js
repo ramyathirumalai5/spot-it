@@ -125,84 +125,36 @@ const shuffleArrayFunction = (array) =>{
 
 const shuffledFinalArray = shuffleArrayFunction(finalArray);
 
-//card1 fuction
-const createCard1Function = (array,arrayOfObjects)=>{
-const card1Div = document.querySelector('.card1');
-for (let i = 0; i < array.length; i++) {
-    const object = arrayOfObjects.find(obj => obj.id === array[i]);
-    if (object) {
-      const img = document.createElement('img');
-      img.src = object.src;
-      img.classList.add('card-item');
-      img.setAttribute('id',object.id);
-      card1Div.appendChild(img);
-    }
-  }
-}
-//card2 function
-const createCard2Function = (array,arrayOfObjects)=>{
-  const card2Div = document.querySelector('.card2');
-  for (let i = 0; i < array.length; i++) {
-    const object = arrayOfObjects.find(obj => obj.id === array[i]);
-    if (object) {
-      const img = document.createElement('img');
-      img.src = object.src;
-      img.classList.add('card-item');
-      img.setAttribute('id',object.id);
-      card2Div.appendChild(img);
-    }
-  }
-  }
-
-const createCard3Function = (array,arrayOfObjects)=>{
-    const card3Div = document.querySelector('.card3');
-    for (let i = 0; i < array.length; i++) {
-      const object = arrayOfObjects.find(obj => obj.id === array[i]);
-      if (object) {
-        const img = document.createElement('img');
-        img.src = object.src;
-        img.classList.add('card-item');
-      img.setAttribute('id',object.id);
-        card3Div.appendChild(img);
-      }
-    }
-    }
-
-const createCard4Function = (array,arrayOfObjects)=>{
-      const card4Div = document.querySelector('.card4');
-      for (let i = 0; i < array.length; i++) {
-        const object = arrayOfObjects.find(obj => obj.id === array[i]);
-        if (object) {
-          const img = document.createElement('img');
-          img.src = object.src;
-          img.classList.add('card-item');
-      img.setAttribute('id',object.id);
-          card4Div.appendChild(img);
-        }
-      }
-      }
-
-const createCard5Function = (array,arrayOfObjects)=>{
-        const card5Div = document.querySelector('.card5');
-        for (let i = 0; i < array.length; i++) {
-          const object = arrayOfObjects.find(obj => obj.id === array[i]);
-          if (object) {
-            const img = document.createElement('img');
-            img.src = object.src;
-            img.classList.add('card-item');
-            img.setAttribute('id',object.id);
-            img.classList.add('card-item');
-            card5Div.appendChild(img);
+       const createCardFunction = (array,arrayOfObjects,str)=>{
+          const cardDiv = document.querySelector(`${str}`);
+          for (let i = 0; i < array.length; i++) {
+              const object = arrayOfObjects.find(obj => obj.id === array[i]);
+              if (object) {
+                const img = document.createElement('img');
+                img.src = object.src;
+                img.classList.add('card-item');
+                img.setAttribute('id',object.id);
+                cardDiv.appendChild(img);
+              }
+            }
           }
-        }
-        }
 
-        createCard1Function(shuffledFinalArray[0],arrayOfObjects);
-        createCard2Function(shuffledFinalArray[1],arrayOfObjects);
+        createCardFunction(shuffledFinalArray[0],arrayOfObjects,'.card1');
+        createCardFunction(shuffledFinalArray[1],arrayOfObjects,'.card2');
+        createCardFunction(shuffledFinalArray[2],arrayOfObjects,'.card3');
+        createCardFunction(shuffledFinalArray[3],arrayOfObjects,'.card4');
+        createCardFunction(shuffledFinalArray[4],arrayOfObjects,'.card5');
+
+
+
+
+
+
+        /* createCard2Function(shuffledFinalArray[1],arrayOfObjects);
         createCard3Function(shuffledFinalArray[2],arrayOfObjects);
         createCard4Function(shuffledFinalArray[3],arrayOfObjects);
         createCard5Function(shuffledFinalArray[4],arrayOfObjects);
-   
+    */
 
 //Where we test for the match
 let cardItem = document.querySelectorAll('.card-item');
